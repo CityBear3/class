@@ -9,10 +9,10 @@ struct Result {
 
 long double targetFunction(long double x) { return x * x - std::cos(x); }
 
-long double derivativeFanction(long double x) { return 2 * x + std::sin(x); }
+long double derivativeFunction(long double x) { return 2 * x + std::sin(x); }
 
 long double repeatFunction(long double x) {
-  return x - targetFunction(x) / derivativeFanction(x);
+  return x - targetFunction(x) / derivativeFunction(x);
 }
 
 Result newtonMethod(long double x) {
@@ -20,7 +20,6 @@ Result newtonMethod(long double x) {
   long double x_new;
   while (i < 2147483647) {
     x_new = repeatFunction(x);
-    // std::cout << std::fixed << std::setprecision(15) << x_new << std::endl;
     if (std::abs(x_new - x) < 1.0e-10) {
       break;
     }
